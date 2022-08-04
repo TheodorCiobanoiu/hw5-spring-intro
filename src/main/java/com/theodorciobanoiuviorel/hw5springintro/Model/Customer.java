@@ -1,7 +1,10 @@
 package com.theodorciobanoiuviorel.hw5springintro.Model;
 
 import com.sun.istack.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
@@ -9,6 +12,8 @@ import java.util.List;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Customer {
     @Id
     @GeneratedValue
@@ -30,9 +35,7 @@ public class Customer {
     @NotNull
     private  String country;
     @OneToMany
-    @NotNull
     private List<Orders> orders;
     @OneToMany
-    @NotNull
     private List<Payment> payments;
 }

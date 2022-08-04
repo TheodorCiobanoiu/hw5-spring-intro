@@ -3,21 +3,21 @@ package com.theodorciobanoiuviorel.hw5springintro.controllers;
 import com.theodorciobanoiuviorel.hw5springintro.Model.Customer;
 import com.theodorciobanoiuviorel.hw5springintro.Service.CustomerService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
-@RestController
+@Controller
 @RequiredArgsConstructor
-@RequestMapping("customers")
-public class CustomerController {
+@RequestMapping("customers/view")
+public class CustomerViewController {
 
     private final CustomerService customerService;
 
     @GetMapping("all")
-    public List<Customer> getAllCustomers() {
-        return customerService.getAllCustomers();
+    public String getAllCustomers(Model model) {
+        model.addAttribute("customers", customerService.getAllCustomers());
+        return "GetCustomers";
     }
 
     @GetMapping("{id}")
