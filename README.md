@@ -1,5 +1,5 @@
 # hw5-spring-intro
-
+```
 For the filter: 
   -Use the /customers/view/filter/{filter}/{filterValue} path, where {filter} is the filter type you want
   -The filter value is for each cases: 
@@ -9,3 +9,4 @@ For the filter:
       !! This is CASE SENSITIVE, so watch out how you give the parameters in the path
   -Use the customers/view/all to view all customers in DB (shows only the username)
   -Use the customers/view/{id} to view customer by id.
+  ```
