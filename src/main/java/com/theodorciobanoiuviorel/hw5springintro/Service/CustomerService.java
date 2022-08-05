@@ -7,6 +7,7 @@ import com.theodorciobanoiuviorel.hw5springintro.mapper.CustomerMapper;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,6 @@ import java.util.stream.Collectors;
 public class CustomerService {
 
     private final CustomerMapper customerMapper;
-
     private final CustomerRepository customerRepository;
 
 
@@ -38,9 +38,9 @@ public class CustomerService {
     public Customer getById(Integer id){
         return customerRepository.findById(id).get();
     }
-    public CustomerDTO getByIdDTO(Integer id){
-        return customerMapper.toCustomerDTO(customerRepository.findById(id).get());
-    }
+//    public CustomerDTO getByIdDTO(Integer id){
+//        return customerMapper.toCustomerDTO(customerRepository.findById(id).get());
+//    }
 
     public Customer save(Customer customer){
         return customerRepository.save(customer);

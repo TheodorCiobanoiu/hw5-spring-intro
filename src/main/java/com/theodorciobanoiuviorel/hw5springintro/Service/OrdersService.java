@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class OrdersService {
 
-    private final OrdersMapper ordersMapper;
+//    private final OrdersMapper ordersMapper;
     private final OrderRepository orderRepository;
 
     public List<Orders> getAllOrders(){
@@ -27,18 +27,18 @@ public class OrdersService {
         return aux;
     }
 
-    public List<OrdersDTO> getAllOrdersDTO(){
-        return orderRepository.findAll().stream()
-                .map(ordersMapper::toOrdersDTO)
-                .collect(Collectors.toList());
-    }
+//    public List<OrdersDTO> getAllOrdersDTO(){
+//        return orderRepository.findAll().stream()
+//                .map(ordersMapper::toOrdersDTO)
+//                .collect(Collectors.toList());
+//    }
 
     public Orders getById(Integer id){
         return orderRepository.findById(id).get();
     }
-    public OrdersDTO getByIdDTO(Integer id){
-        return ordersMapper.toOrdersDTO(orderRepository.findById(id).get());
-    }
+//    public OrdersDTO getByIdDTO(Integer id){
+//        return ordersMapper.toOrdersDTO(orderRepository.findById(id).get());
+//    }
 
     public Orders save(Orders order){
         return orderRepository.save(order);

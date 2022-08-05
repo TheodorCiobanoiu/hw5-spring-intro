@@ -1,6 +1,5 @@
 package com.theodorciobanoiuviorel.hw5springintro.controllers;
 
-import com.theodorciobanoiuviorel.hw5springintro.Model.Customer;
 import com.theodorciobanoiuviorel.hw5springintro.Service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -21,19 +20,18 @@ public class CustomerViewController {
     }
 
     @GetMapping("{id}")
-    public Customer getById(@PathVariable Integer id){
-        return customerService.getById(id);
+    public String getById(Model model, @PathVariable Integer id){
+        model.addAttribute("customer", customerService.getById(id));
+        return"GetCustomerById";
     }
 
-    @PostMapping
-    public Customer save(@RequestBody Customer customer){
-        return customerService.save(customer);
-    }
+    @GetMapping("filter/{filter}/{filterValue}")
+    public String getCustomerFilter(Model model, @PathVariable String filter, @PathVariable String filterValue){
+        model.addAttribute("customers", customerService.getAllCustomers());
+        model.addAttribute("filterValue", filterValue);
+        model.addAttribute("filter", filter);
+        return "ViewCustomerFiltered";
 
-
-    @DeleteMapping("{id}")
-    public void deleteById(@PathVariable Integer id){
-        customerService.deleteById(id);
     }
 
 }

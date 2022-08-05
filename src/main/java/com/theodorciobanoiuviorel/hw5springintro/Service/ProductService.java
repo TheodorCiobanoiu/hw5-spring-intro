@@ -15,25 +15,24 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ProductService {
 
-    private final ProductMapper productMapper;
+//    private final ProductMapper productMapper;
     private final ProductRepository productRepository;
 
     public List<Product> getAllProduct(){
         return productRepository.findAll();
     }
-    public List<ProductDTO> getAllProductDTO() {
-
-        return productRepository.findAll().stream()
-                .map(productMapper::toProductDTO)
-                .collect(Collectors.toList());
-    }
+//    public List<ProductDTO> getAllProductDTO() {
+//        return productRepository.findAll().stream()
+//                .map(productMapper::toProductDTO)
+//                .collect(Collectors.toList());
+//    }
 
     public Product getById(Integer id){
         return productRepository.findById(id).get();
     }
-    public ProductDTO getByIdDTO(Integer id){
-        return productMapper.toProductDTO(productRepository.findById(id).get());
-    }
+//    public ProductDTO getByIdDTO(Integer id){
+//        return productMapper.toProductDTO(productRepository.findById(id).get());
+//    }
 
     public Product save(Product product){
         return productRepository.save(product);

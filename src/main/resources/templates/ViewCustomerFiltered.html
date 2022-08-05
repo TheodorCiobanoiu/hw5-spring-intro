@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ro" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Filtered Customer set</title>
+</head>
+<body>
+<div th:each="customer:${customers}">
+    <span th:if="${filter == 'username'}">
+        <span th:if="${customer.getUsername().charAt(0) == filterValue.charAt(0)}">
+            <p th:text="${customer.getUsername()}"></p>
+        </span>
+    </span>
+
+    <span th:if="${filter == 'city'}">
+        <span th:if="${customer.getCity().equals(filterValue)}">
+            <p th:text="${customer.getUsername()}"></p>
+        </span>
+    </span>
+
+    <span th:if="${filter == 'country'}">
+        <span th:if="${customer.getCountry().equals(filterValue)}">
+            <p th:text="${customer.getUsername()}"></p>
+        </span>
+    </span>
+</div>
+</body>
+</html>
